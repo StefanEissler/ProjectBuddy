@@ -39,18 +39,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().disable();
+        http.csrf().disable();
         http
-                .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/h2-console/**").permitAll()
                     .antMatchers("/api/auth/**").permitAll()
-                    .antMatchers("/").permitAll()
-                    .antMatchers("/budget").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers("/login").permitAll()
+                    .antMatchers("/h2-console/**").permitAll()
+                .anyRequest().authenticated();
+        http.formLogin().loginPage("/login").permitAll()
                 .and()
-                    .formLogin().loginPage("/frontend/login/index").permitAll()
-                .and()
-                    .logout().logoutSuccessUrl("/").permitAll()
+                    .logout().logoutSuccessUrl("/login").permitAll()
                 .and()
                     .httpBasic();
     }

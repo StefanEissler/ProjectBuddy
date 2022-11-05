@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link type="text/css" rel="stylesheet" href="style.css">
+        <link type="text/css" href="/style/login.css" rel="stylesheet"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/dc0460d8c0.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
             <div class = "container"> <!-- Bootstrap Container, so the logo and nav is centered -->
@@ -17,14 +18,14 @@
                 <h2>Login</h2>
                 <form>
                     <div class="user-box">
-                        <input type="text" name="" required="" placeholder="Username">
+                        <input type="text" name="" required="" placeholder="Username" id="name">
                     </div>
                     <div class="user-box">
-                        <input type="password" name="" required="" placeholder="Password">
+                        <input type="password" name="" required="" placeholder="Password" id="password">
                     </div>
                     <div class="button-form btn">
                         <div class="submit-wrapper">
-                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button id="button" type="button" class="btn btn-primary">Submit</button>
                         </div>
                         <div id="register">
                             Don't have an account?
@@ -32,6 +33,27 @@
                         </div>
                     </div>
                 </form>
+                <script>
+                    $("button").click(function(e) {
+                        e.preventDefault();
+                        const name =document.querySelector("#name")
+                        const password =document.querySelector("#password")
+                        $.ajax({
+                            type: "POST",
+                            url: "http://localhost:8080/api/auth/signin",
+                            data: {
+                                "usernameOrEmail": name,
+                                "password": password
+                            },
+                            success: function(result) {
+                                alert('ok');
+                            },
+                            error: function(result) {
+                                alert('error');
+                            }
+                        });
+                    });
+                </script>
             </div>
             </div>
     </body>

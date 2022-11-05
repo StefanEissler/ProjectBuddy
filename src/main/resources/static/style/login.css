@@ -1,0 +1,78 @@
+/* raleway-regular - latin */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/raleway-v28-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+    url('../fonts/raleway-v28-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/raleway-v28-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/raleway-v28-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/raleway-v28-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/raleway-v28-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+
+.login-box{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 350px;
+    height: 250px;
+    transform:translate(-50%, -50%);
+    background: #efeded;
+    border-radius:10px;
+}
+.logo-wrapper p{
+    display: inline;
+    font-weight: lighter;
+}
+
+body{
+    background-color: rgb(37, 37, 38);
+    text-align: center;
+    height: 100vh;
+    color: rgb(24, 24, 24);
+    font-weight: lighter;
+}
+
+.logo-wrapper{
+    font-weight: 400;
+    color: #e1dede;
+    font-size: 40px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 18%
+}
+#register{
+    padding-top:20px;
+}
+
+.user-box{
+    margin-top: 5px;
+}
+
+.user-box input{
+    border-radius: 10px;
+    border-color: black;
+}
+.submit-wrapper{
+    padding-top:10px;
+}
+
+.submit-wrapper button{
+    background-color: turquoise;
+    border-style: hidden;
+    border-radius: 10px;
+}
+
+.submit-wrapper a{
+    border-style: solid;
+    border-color: grey;
+    padding:3px;
+    text-decoration: none;
+    color: black;
+    background-color: grey;
+    border-radius: 10%;
+}
+
