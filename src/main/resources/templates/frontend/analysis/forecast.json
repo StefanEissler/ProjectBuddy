@@ -1,0 +1,76 @@
+[
+    {
+        "id": "0001",
+        "title": "Personalkosten",
+        "value": 100,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+    {
+        "id": "0002",
+        "title": "Sachkosten",
+        "value": 50.6,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+    {
+        "id": "0003",
+        "title": "Externe Dienstleistungen",
+        "value": 40.3,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+    {
+        "id": "0004",
+        "title": "Mietaufwendungen",
+        "value": 40.8,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+    {
+        "id": "0005",
+        "title": "Reisekosten",
+        "value": 20.5,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+    {
+        "id": "0006",
+        "title": "Beschaffung",
+        "value": 80.2,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+
+    {
+        "id": "0007",
+        "title": "IT-Kosten",
+        "value": 30.9,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+
+    {
+        "id": "0008",
+        "title": "Schulungskosten",
+        "value": 30.4,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+
+    {
+        "id": "0009",
+        "title": "Sonstige Projektkosten",
+        "value": 0.7,
+        "date": "15.07.2022",
+        "category": "none"
+    },
+
+    {
+        "id": "0010",
+        "title": "Interne Zusatzkosten",
+        "value": 1.4,
+        "date": "15.07.2022",
+        "category": "none"
+    }
+]

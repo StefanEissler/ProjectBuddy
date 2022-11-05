@@ -1,0 +1,270 @@
+/* raleway-regular - latin */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/raleway-v28-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+    url('../fonts/raleway-v28-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/raleway-v28-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/raleway-v28-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/raleway-v28-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/raleway-v28-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+
+:root{
+    --width: 100%;
+    --height: 80%;
+}
+
+
+/* Start: Header */
+header{
+    background-color: rgb(44, 44, 45);
+    border-style: hidden hidden solid hidden;
+    border-color: turquoise;
+}
+
+.logo-wrapper{
+    float:left;
+    margin: 10px auto 5px auto;
+    text-decoration: none;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #e1dede;
+}
+
+.logo-wrapper p{
+    display: inline;
+}
+
+header nav {
+    float:right;
+    margin-top: 15px;
+}
+
+header nav ul li {
+    float: left;
+    list-style-type: none;
+}
+
+header ul li a.left {
+    color: #e1dede;
+    text-decoration: none;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-right: 20px;
+    margin-left:-30px;
+}
+
+header ul li a.right {
+    color: #e1dede;
+    text-decoration: none;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+header ul li a:hover {
+    color: turquoise;
+    text-decoration: underline;
+}
+
+/* End: Header */
+
+main{
+    margin-top: 40px;
+}
+
+body{
+    background-color: rgb(37, 37, 38);
+    height: 100%;
+    font-weight: lighter;
+}
+
+.budget-name h3{
+    text-align: center;
+    color: #e1dede;
+    border-style: solid hidden solid hidden;
+    margin-bottom: 30px;
+    font-size: 50px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: lighter;
+}
+/* Start: Costs Container */
+
+.main .container{
+    margin-bottom: 20px;
+}
+.cost{
+    height: 600px; /*max-height noch einfügen*/
+    overflow-y: scroll;
+    padding:10px;
+    background-color: rgb(49, 49, 51);
+    border-radius: 0 20px 20px 20px;
+
+}
+
+.cost-container-name p{
+    display: inline-block;
+    font-weight: bold;
+}
+.hoehe{
+    margin-left: 80px;
+    margin-right: 20px;
+}
+.datum{
+    margin-right: 60px;
+}
+.cost-container-name {
+    text-align: left;
+}
+
+.cost-container {
+    background-color: #e1dede;
+    color: black;
+    width: 100%;
+    height: 125px;
+    margin-bottom: 10px;
+    border: 1px black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.cost-container h3{
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.cost-container i{
+    color:black;
+}
+
+.cost-container i{
+    color:black;
+}
+
+
+.switch-spending-forecast input{
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    background-color: rgb(49, 49, 51);
+    color: #e1dede;
+    border: 0;
+}
+
+.title-text {
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.date-text {
+    color: black;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 10px 10px;
+    font-weight: 350;
+
+}
+.value-text {
+    color: black;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-left: 15%;
+    margin-right: 10px;
+    font-weight: 350;
+}
+.category-text {
+    color: black;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 10px 10px;
+    font-weight: 350;
+}
+
+.fa-solid {
+    cursor: pointer;
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.spacer{
+    height: 26px;
+}
+
+#list-forecast{
+    display: none
+}
+
+#list-spending{
+    display:none
+}
+
+/* Start: Chart*/
+.chart{
+    height: 600px;
+    font-weight: 350;
+}
+.chart-spending{
+    background-color: red;
+    width: 200px;
+    border-style: solid solid hidden solid;
+    border-radius: 20px 20px 0 0;
+    border-color: rgb(60, 60, 63);
+}
+.chart-forecast{
+    background-color: orange;
+    width: 200px;
+    border-style: hidden solid hidden solid;
+    border-color: rgb(60, 60, 63);
+
+}
+.chart-budget{
+    background-color: limegreen;
+    width: 200px;
+    border-style: hidden solid solid solid;
+    border-color: rgb(60, 60, 63);
+    border-radius: 0 0 20px 20px;
+}
+
+.chart h3{
+    margin-top: 0;
+    padding-top: 20px;
+}
+/*Ende: Chart*/
+
+/*Start: Eingabe der neuen Kosten*/
+section.output-input{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 350;
+}
+section.output-input button{
+    border-radius: 0;
+    background-color: turquoise;
+    color: black;
+    border-style: hidden;
+    border-radius: 10px;
+}
+#text-spending{
+    border-radius: 10px;
+    border-style: hidden;
+    width: 100px;
+}
+
+#text-spending-name{
+    border-radius: 10px;
+    border-style: hidden;
+    width: 100px;
+}
+
+#category{
+    border-radius: 10px;
+    border-style: hidden;
+    width: 130px;
+}

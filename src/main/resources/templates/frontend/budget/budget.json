@@ -1,0 +1,26 @@
+[
+  {
+    "id": "0001",
+    "name": "Softwareprojekt",
+    "amount": 70.4,
+    "date": "15.07.2002"
+  },
+  {
+    "id": "0001",
+    "name": "Projekt 2",
+    "amount": 68.2,
+    "date": "15.07.2002"
+  },
+  {
+    "id": "0001",
+    "name": "Projekt Cloud 2.0",
+    "amount": 93.7,
+    "date": "15.07.2002"
+  },
+  {
+    "id": "0001",
+    "name": "Projekt MJS2",
+    "amount": 55.9,
+    "date": "15.07.2002"
+  }
+]

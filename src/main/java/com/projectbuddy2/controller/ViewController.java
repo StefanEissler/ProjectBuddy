@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 
-//    @GetMapping("/")
-//    public String budget() {
-//        return "budget";
-//    }
-
-
     @RequestMapping("/budget")
-    public String index(){
-        return "budget";
+    public String budgetPage(){
+        return "frontend/budget/index";
     }
-
+    @RequestMapping("/analysis")
+    public String index(){
+        return "frontend/analysis/index";
+    }
 }
