@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link type="text/css" href="/style/login.css" rel="stylesheet"/>
+        <link th:href="@{/style/login.css}" type="text/css" rel="stylesheet" media="all" href="/style/login.css" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/dc0460d8c0.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -36,7 +36,7 @@
                 <script>
                     $("button").click(function(e) {
                         e.preventDefault();
-                        const name =document.querySelector("#name")
+                        const name =document.querySelector('#name')
                         const password =document.querySelector("#password")
                         $.ajax({
                             type: "POST",

@@ -24,4 +24,9 @@ public class ViewController {
         return "frontend/login/index";
     }
 
+    @RequestMapping("index")
+    public String index(){
+        return "index.html";
+    }
+
 }
