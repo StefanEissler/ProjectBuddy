@@ -64,9 +64,16 @@ const deleteEntry=() => {
     //Request DELETE
 }
 
+const FALLSTUDIE_HEADERS = {
+    'Content-Type': 'application/json'
+}
+
 const loadData = async () => {
     // Fetching vom JSON
-    const spending_response = await fetch('./costs.json');
+    const spending_response = await fetch('http://localhost:8080/api/booking', {
+        headers: FALLSTUDIE_HEADERS
+    });
+
     const spending_array = await spending_response.json();
 
     const forecast_response = await fetch('./forecast.json');

@@ -1,7 +1,5 @@
 package com.projectbuddy2.controller;
 
-
-
 import com.projectbuddy2.dto.BookingDto;
 import com.projectbuddy2.entities.Booking;
 import com.projectbuddy2.repositories.BookingRepository;
@@ -15,9 +13,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/api/booking")
+@CrossOrigin
 public class BookingController {
 
 

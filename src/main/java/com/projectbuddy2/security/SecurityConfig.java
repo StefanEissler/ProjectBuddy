@@ -46,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/api/auth/**").permitAll()
+                    .antMatchers("/**").permitAll()
                     .antMatchers("/login").permitAll()
                     .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();

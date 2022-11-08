@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/budget")
+@CrossOrigin
 public class BudgetController {
 
     private final BudgetRepository budgetRepository;
