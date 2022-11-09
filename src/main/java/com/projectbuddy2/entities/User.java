@@ -43,7 +43,7 @@ public class User implements UserDetails{
     private String email;
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
 //    @JoinTable(name = "user_budget_list",
 //                joinColumns = @JoinColumn(name = "user_id"),
 //                inverseJoinColumns = @JoinColumn(name = "budget_id"))
