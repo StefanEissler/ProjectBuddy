@@ -27,4 +27,18 @@ public class UserRepositoryTest {
         boolean expected = userRepository.existsUserByEmail(email);
         assertThat(expected).isTrue();
     }
+
+    @Test
+    void shouldCheckIfStudentExistsByID(){
+        User user = new User(
+                "stefan",
+                "stefaneissler@web.de",
+                "12345678"
+
+        );
+        userRepository.save(user);
+        long userid = user.getId();
+        boolean expected = userRepository.existsById(userid);
+        assertThat(expected).isTrue();
+    }
 }
