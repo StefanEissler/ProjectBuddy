@@ -1,6 +1,12 @@
 let forecastsum;
 let spendingsum;
-let budget = 2000;
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+});
+
+let budgetId = parseInt(params.budget);
+let budget = 0;
 
 //Catching des orginalen Container
 const spending_container = document.getElementById("list-spending"); // Reference div id=container
@@ -28,55 +34,102 @@ const createElementNode = (datatype, container, className, onClick) => {
 //Erstellen der Nodes für jedes JSON
 const createCostContainer = (object, container) => {
 
-    const { title, date, value, category } = object
+    const { id, title, timestamp, amount, category } = object
 
-    const costContainerName = document.createElement("div")
-    costContainerName.className="cost-container-name"
     const costContainer = document.createElement("div")
     costContainer.className = "cost-container"
+    const costContainerSub = document.createElement("div")
+    costContainerSub.className = "cost-container-sub"
+    const costContainerIcon = document.createElement("div")
+    costContainerIcon.className = "cost-container-icon"
+    const costContainerAmount = document.createElement("div")
+    costContainerAmount.className = "cost-container-amount"
+    const costContainerDate = document.createElement("div")
+    costContainerDate.className = "cost-container-date"
+    const costContainerCategory = document.createElement("div")
+    costContainerCategory.className = "cost-container-category"
 
     createTextElementNode("h3", title, costContainer, "title-text")
-    costContainer.appendChild(costContainerName)
-    createTextElementNode("p","Höhe",costContainerName,"hoehe")
-    createTextElementNode("p","Datum",costContainerName,"datum")
-    createTextElementNode("p","Kategorie",costContainerName,"kategorie")
-    createTextElementNode("p", value+"€", costContainer, "value-text")
-    createTextElementNode("p", date, costContainer, "date-text")
-    createTextElementNode("p", category, costContainer, "category-text")
-    createElementNode("i",costContainer, "fa-solid fa-pen",updatedEntry)
-    createElementNode("i",costContainer, "fa-solid fa-repeat",switchEntry)
-    createElementNode("i",costContainer, "fa-solid fa-trash-can",deleteEntry)
+    costContainer.appendChild(costContainerSub)
+    costContainer.appendChild(costContainerIcon)
+    costContainerSub.appendChild(costContainerAmount)
+    costContainerSub.appendChild(costContainerDate)
+    costContainerSub.appendChild(costContainerCategory)
+
+
+    createTextElementNode("h4","Höhe",costContainerAmount,"hoehe")
+    createTextElementNode("p", amount+"€", costContainerAmount, "value-text")
+
+    createTextElementNode("h4","Datum",costContainerDate,"datum")
+    createTextElementNode("p", timestamp, costContainerDate, "date-text")
+
+    createTextElementNode("h4","Kategorie",costContainerCategory,"kategorie")
+    createTextElementNode("p", category, costContainerCategory, "category-text")
+
+
+    createElementNode("i",costContainerIcon, "fa-solid fa-pen",()=>updatedEntry(object))
+    createElementNode("i",costContainerIcon, "fa-solid fa-repeat",()=>switchEntry(object))
+    createElementNode("i",costContainerIcon, "fa-solid fa-trash-can",()=>deleteEntry(id))
     container.appendChild(costContainer);
-
 }
 
-const updatedEntry=() => {
+//Modal öffnen
+const updatedEntry=(opened) => {
     console.log("UPDATE")
-    //Request UPDATE
+    const modal=document.getElementById("modal");
+    openedBooking = opened;
+    modal.showModal();
 }
 
-const switchEntry=() => {
+//Request SWITCH
+const switchEntry=(opened) => {
     console.log("SWITCH")
-    //Request SWITCH
+    fetch("http://localhost:8080/api/booking/"+opened.id, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: opened.title,
+            amount: opened.amount,
+            category: opened.category === "Forecast" ? "Cost": "Forecast"
+        })
+    }).then(response => response.json())
+        .then(data => console.log(data))
+        .finally(() => location.reload())
 }
-const deleteEntry=() => {
+//Request DELETE
+const deleteEntry=(id) => {
+    fetch("http://localhost:8080/api/booking/"+id,
+        {method: "DELETE"})
+        .then(response => response.json())
+        .then(data => {console.log(data);})
+        .finally( () => location.reload())
     console.log("DELETE")
-    //Request DELETE
 }
 
-const FALLSTUDIE_HEADERS = {
-    'Content-Type': 'application/json'
+const addEntry=(event) => {
+    fetch("http://localhost:8080/api/booking/add", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: event.target[0].value,
+            amount: event.target[1].value,
+            category: event.target[2].value
+        })
+    }).then(response => response.json())
+        .then(data => console.log(data))
+        .finally(() => location.reload())
 }
 
 const loadData = async () => {
     // Fetching vom JSON
-    const spending_response = await fetch('http://localhost:8080/api/booking', {
-        headers: FALLSTUDIE_HEADERS
-    });
-
+    const spending_response = await fetch('http://localhost:8080/api/booking/costs/'+budgetId)
     const spending_array = await spending_response.json();
 
-    const forecast_response = await fetch('./forecast.json');
+    const forecast_response = await fetch('http://localhost:8080/api/booking/forecasts/'+budgetId);
     const forecast_array = await forecast_response.json();
 
     // Creating von den einzelnen Divs für die Cost-/Forecast-List
@@ -95,14 +148,15 @@ const loadData = async () => {
 
     forecastsum = forecastvalues.reduce(getSum, 0);
     spendingsum = spendingvalues.reduce(getSum, 0);
-
+    console.log(spendingsum);
     document.getElementById("chart-spending-value").innerHTML=spendingsum+'€';
     document.getElementById("chart-forecast-value").innerHTML=forecastsum+'€';
     document.getElementById("chart-budget-value").innerHTML=budget+'€';
 
     function getsinglevalues(item) {
-        return item.value;
+        return item.amount;
     }
+
     function getSum(total, num) {
         return total + Math.round(num);
     }
@@ -112,7 +166,6 @@ const loadData = async () => {
     let chartForecastsum = (forecastsum/budget)*100 ;
     let chartbudget = ((budget - (forecastsum+spendingsum))/budget)*100;
 
-    console.log(chartSpendingsum);
 
     //Setzen der divs auf den prozentualen Anteil
     const cs = document.querySelector('.chart-spending');
@@ -124,9 +177,6 @@ const loadData = async () => {
     const cb = document.querySelector('.chart-budget');
     cb.style.height=chartbudget+"%";
 }
-
-
-
 
 
 loadData().then((message) => { // We don't return something

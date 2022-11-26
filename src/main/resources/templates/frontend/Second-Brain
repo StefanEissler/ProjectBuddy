@@ -15,5 +15,7 @@ javascript html input feld mit modal und editier button
 
 Budget - Bubbles in Container setzten
 Header scrollt mit?
-Budgetchart -> Benennung
+
+localhost:8080/h2-console -> Zugriff Datenbank in application.properties
+POSTMAN Register -> Login -> CREATE Booking -> POST Booking
 

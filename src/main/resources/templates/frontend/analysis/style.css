@@ -17,6 +17,9 @@
     --height: 80%;
 }
 
+body{
+    font-family: Raleway, sans-serif;
+}
 
 /* Start: Header */
 header{
@@ -97,93 +100,47 @@ body{
 .main .container{
     margin-bottom: 20px;
 }
+
 .cost{
-    height: 600px; /*max-height noch einfügen*/
+    height: 600px;
     overflow-y: scroll;
     padding:10px;
     background-color: rgb(49, 49, 51);
     border-radius: 0 20px 20px 20px;
 
 }
-
-.cost-container-name p{
-    display: inline-block;
-    font-weight: bold;
-}
-.hoehe{
-    margin-left: 80px;
-    margin-right: 20px;
-}
-.datum{
-    margin-right: 60px;
-}
-.cost-container-name {
-    text-align: left;
-}
-
 .cost-container {
     background-color: #e1dede;
     color: black;
     width: 100%;
-    height: 125px;
     margin-bottom: 10px;
     border: 1px black;
     border-radius: 20px;
     text-align: center;
+    line-height: 1.5;
+    font-weight: 350;
+}
+.cost-container-sub{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.cost-container-icon{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 10px;
+}
+.cost-container-amount, .cost-container-date, .cost-container-category{
+    float: left;
 }
 
+.cost-container-date{
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .cost-container h3{
-    font-weight: bold;
     padding-top: 10px;
-}
-
-.cost-container i{
-    color:black;
-}
-
-.cost-container i{
-    color:black;
-}
-
-
-.switch-spending-forecast input{
-    border-radius: 10px 10px 0 0;
-    text-transform: uppercase;
-    background-color: rgb(49, 49, 51);
-    color: #e1dede;
-    border: 0;
-}
-
-.title-text {
-    color: black;
-    font-size: 16px;
-    line-height: 1.5;
-}
-.date-text {
-    color: black;
-    float: left;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0 10px 10px;
-    font-weight: 350;
-
-}
-.value-text {
-    color: black;
-    float: left;
-    font-size: 16px;
-    line-height: 1.5;
-    margin-left: 15%;
-    margin-right: 10px;
-    font-weight: 350;
-}
-.category-text {
-    color: black;
-    float: left;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0 10px 10px;
-    font-weight: 350;
 }
 
 .fa-solid {
@@ -191,6 +148,17 @@ body{
     color: black;
     margin-right: 10px;
     margin-left: 10px;
+}
+.cost-container i{
+    color:black;
+}
+
+.switch-spending-forecast input{
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    background-color: rgb(49, 49, 51);
+    color: #e1dede;
+    border: 0;
 }
 
 .spacer{
@@ -209,7 +177,10 @@ body{
 .chart{
     height: 600px;
     font-weight: 350;
+    text-align: center;
 }
+
+
 .chart-spending{
     background-color: red;
     width: 200px;
@@ -244,27 +215,26 @@ section.output-input{
     margin-bottom: 30px;
     font-weight: 350;
 }
-section.output-input button{
-    border-radius: 0;
+.eingabe, .eingabe1{
     background-color: turquoise;
     color: black;
     border-style: hidden;
     border-radius: 10px;
 }
-#text-spending{
+#text-spending, .text-spending1{
     border-radius: 10px;
     border-style: hidden;
-    width: 100px;
+    width: 120px;
 }
 
-#text-spending-name{
+#text-spending-name, .text-spending-name1{
     border-radius: 10px;
     border-style: hidden;
-    width: 100px;
+    width: 120px;
 }
 
-#category{
+#category, .category1{
     border-radius: 10px;
     border-style: hidden;
-    width: 130px;
+    width: 200px;
 }

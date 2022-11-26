@@ -8,18 +8,32 @@ const createNode = (datatype, text, container, className) => {
     tag.appendChild(textNode)
     container.appendChild(tag)
 }
+const createClickNode = (datatype, text, container, className, onClick) => {
+    const tag = document.createElement(datatype)
+    const textNode = document.createTextNode(text) // Child
+    tag.addEventListener("click",onClick);
+    tag.className = className ? className : ""
+    tag.appendChild(textNode)
+    container.appendChild(tag)
+}
 
 const createBubbleContainer = (object, container) => {
 
-    const { name, date, amount } = object
+    const { id,  name, date, amount } = object
 
     const BubbleContainer = document.createElement("div")
     BubbleContainer.className = "bubble-container"
+    const BubbleContainerSub = document.createElement("div")
+    BubbleContainerSub.className = "bubble-container-sub"
 
-    createNode("p", name, BubbleContainer, "name-text")
-    createNode("p", amount+'€', BubbleContainer, "amount-text")
-    createNode("p", date, BubbleContainer, "date-text")
-    createNode("a",'Hier gehts zum Dashboard', BubbleContainer, "button-text")
+    createNode("h3", name, BubbleContainer, "name-text")
+    BubbleContainer.appendChild(BubbleContainerSub);
+
+    createNode("div", amount+'€', BubbleContainerSub, "amount-text")
+    createNode("div", date, BubbleContainerSub, "date-text")
+    createClickNode("button",'Hier gehts zum Dashboard', BubbleContainer, "button-text", ()=>{
+        window.location.href="../analysis/?user=1&budget="+id; //User hardgecoded
+    })
     container.appendChild(BubbleContainer)
 }
 

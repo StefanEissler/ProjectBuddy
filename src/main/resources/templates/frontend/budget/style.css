@@ -12,6 +12,9 @@
     url('../../../static/style/fonts/raleway-v28-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
 }
 
+body{
+    font-family: Raleway, sans-serif;
+}
 /* Start: Header */
 header{
     background-color: rgb(37, 37, 38);
@@ -95,7 +98,7 @@ html, body{
 }
 .bubble-container{
     background-color: turquoise;
-    padding-top: 40px;
+    padding-top: 25px;
     color: black;
     width: 250px;
     height: 250px;
@@ -107,24 +110,25 @@ html, body{
 
 .name-text{
     color: black;
-    font-size: 16px;
     line-height: 1.5;
     text-align: center;
 }
 
-.amount-text{
+.amount-text, .date-text{
     color: black;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
 }
 
-.date-text{
-    color: black;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
+.bubble-container-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    column-gap: 15px;
 }
+
 
 .button-text{
     padding: 10px 5px 10px 5px;
