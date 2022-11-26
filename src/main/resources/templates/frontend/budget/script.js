@@ -39,7 +39,7 @@ const createBubbleContainer = (object, container) => {
 
 const loadData = async () => {
     // Fetching vom JSON
-    const response = await fetch('./budget.json');
+    const response = await fetch("http://localhost:8080/api/user/1/budgets");
     const array = await response.json();
 
     // Creating von den einzelnen Divs für die Cost-/Forecast-List

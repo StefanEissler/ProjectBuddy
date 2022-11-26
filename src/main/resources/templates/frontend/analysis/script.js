@@ -73,12 +73,29 @@ const createCostContainer = (object, container) => {
     container.appendChild(costContainer);
 }
 
+let openedBooking = undefined;
+
 //Modal öffnen
 const updatedEntry=(opened) => {
     console.log("UPDATE")
     const modal=document.getElementById("modal");
     openedBooking = opened;
     modal.showModal();
+}
+//Request UPDATE
+const updateEntry=(event) => {
+    fetch("http://localhost:8080/api/booking/"+openedBooking.id, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: event.target[0].value,
+            amount: event.target[1].value,
+            category: event.target[2].value
+        })
+    }).then(response => response.json())
+        .then(data => console.log(data)).finally(() => location.reload())
 }
 
 //Request SWITCH
@@ -125,6 +142,14 @@ const addEntry=(event) => {
 }
 
 const loadData = async () => {
+    const budgetObject = (await
+        (await fetch("http://localhost:8080/api/user/1/budgets")).json())
+        .find(entry => entry.id === budgetId)
+    budget = budgetObject.amount;
+
+    const title = document.getElementById("budget-title")
+    title.innerHTML=budgetObject.name
+
     // Fetching vom JSON
     const spending_response = await fetch('http://localhost:8080/api/booking/costs/'+budgetId)
     const spending_array = await spending_response.json();
