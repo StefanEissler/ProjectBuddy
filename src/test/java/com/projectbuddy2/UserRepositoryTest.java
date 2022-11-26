@@ -35,6 +35,7 @@ public class UserRepositoryTest {
     @Test
     void shouldCheckIfUserExistsByID(){
         User user = new User(
+                1L,
                 "stefan",
                 "stefaneissler@web.de",
                 "12345678"
