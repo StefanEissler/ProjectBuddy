@@ -17,3 +17,5 @@ INSERT INTO bookings(id, title, timestamp, amount, category, budget_id) VALUES (
 INSERT INTO bookings(id, title, timestamp, amount, category, budget_id) VALUES ( 20, 'Werbekosten', '2022-11-12', 2500.00, 'Forecast', 2);
 
 INSERT INTO users(id, email, name, password) VALUES (1, 'admin@mjs.mail', 'admin', '$2a$10$4Klsu4GZahSiLOe0SILVx.NSPR./zNbaDQx2qUbSrERGnLQo0D3rO');
+
+INSERT INTO budgets_users(budget_list_id, users_id) VALUES (2, 1);

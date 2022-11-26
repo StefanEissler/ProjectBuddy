@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+
+/*
+Buisness Logik für Bookings
+ */
 @Service
 public class BookingService {
 

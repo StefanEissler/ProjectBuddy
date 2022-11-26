@@ -8,6 +8,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+/*
+Testing für das UserRespository
+ */
+
 @DataJpaTest
 public class UserRepositoryTest {
 
@@ -18,10 +22,10 @@ public class UserRepositoryTest {
     void shouldCheckIfStudentExistsByEmail(){
         String email = "stefaneissler@web.de";
         User user = new User(
+                1L,
                 "stefan",
                 email,
                 "12345678"
-
         );
         userRepository.save(user);
         boolean expected = userRepository.existsUserByEmail(email);
@@ -29,12 +33,11 @@ public class UserRepositoryTest {
     }
 
     @Test
-    void shouldCheckIfStudentExistsByID(){
+    void shouldCheckIfUserExistsByID(){
         User user = new User(
                 "stefan",
                 "stefaneissler@web.de",
                 "12345678"
-
         );
         userRepository.save(user);
         long userid = user.getId();

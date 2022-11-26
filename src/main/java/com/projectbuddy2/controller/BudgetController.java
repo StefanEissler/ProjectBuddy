@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+// REST Controller für erzeugen, löschen und ändern der Budgets
 @RestController
 @RequestMapping("/api/budget")
 @CrossOrigin

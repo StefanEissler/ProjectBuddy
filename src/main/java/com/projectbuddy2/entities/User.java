@@ -1,5 +1,6 @@
 package com.projectbuddy2.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@AllArgsConstructor
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"name"}),
@@ -23,6 +25,13 @@ public class User implements UserDetails{
 
     }
     public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(Long id, String name, String email, String password) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -44,10 +53,8 @@ public class User implements UserDetails{
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
-//    @JoinTable(name = "user_budget_list",
-//                joinColumns = @JoinColumn(name = "user_id"),
-//                inverseJoinColumns = @JoinColumn(name = "budget_id"))
     Set<Budget> budgetList;
+
 
     @Override
     public String toString() {

@@ -13,6 +13,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+
+// REST Controller für erzeugen, löschen und ändern der Bookings
 @RestController
 @RequestMapping("/api/booking")
 @CrossOrigin

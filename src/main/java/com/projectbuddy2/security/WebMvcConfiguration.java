@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/*
+Konfiguration des MVC von Spring Boot
+ */
 
 @EnableWebMvc
 @ComponentScan("org.springframework.security.samples.mvc")
