@@ -69,7 +69,7 @@ const createCostContainer = (object, container) => {
 
     createElementNode("i",costContainerIcon, "fa-solid fa-pen",()=>updatedEntry(object))
     createElementNode("i",costContainerIcon, "fa-solid fa-repeat",()=>switchEntry(object))
-    createElementNode("i",costContainerIcon, "fa-solid fa-trash-can",()=>deleteEntry(id))
+    createElementNode("i",costContainerIcon, "fa-solid fa-trash-can",()=>deleteEntry(object))
     container.appendChild(costContainer);
 }
 
@@ -117,8 +117,8 @@ const switchEntry=(opened) => {
         .finally(() => location.reload())
 }
 //Request DELETE
-const deleteEntry=(id) => {
-    fetch("http://localhost:8080/api/booking/"+id,
+const deleteEntry=(opened) => {
+    fetch("http://localhost:8080/api/booking/"+opened.id,
         {method: "DELETE"})
         .then(response => response.json())
         .then(data => {console.log(data);})
