@@ -95,7 +95,8 @@ const updateEntry=(event) => {
             category: event.target[2].value
         })
     }).then(response => response.json())
-        .then(data => console.log(data)).finally(() => location.reload())
+        .then(data => console.log(data))
+        .finally(() => location.reload())
 }
 
 //Request SWITCH
